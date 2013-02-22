@@ -97,6 +97,7 @@ PRODUCT_PACKAGES += \
     com.android.future.usb.accessory \
     make_ext4fs \
     setup_fs \
+    AutoParts_tfp \
     audio.a2dp.default \
     audio.usb.default \
     libtinyalsa \
