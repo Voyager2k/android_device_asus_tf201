@@ -44,10 +44,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/gpsconfig.xml:system/etc/gps/gpsconfig.xml \
 	$(LOCAL_PATH)/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
 
-# Prebuilt binary files
-#PRODUCT_COPY_FILES += \
-#    $(LOCAL_PATH)/vold/vold:system/bin/vold
-
 # Input device configuration files
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/idc/atmel-maxtouch.idc:system/usr/idc/atmel-maxtouch.idc \

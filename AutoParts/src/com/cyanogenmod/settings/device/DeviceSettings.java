@@ -35,6 +35,9 @@ import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.view.MenuItem;
+import android.widget.Toast;
+
+import com.cyanogenmod.asusdec.DockEmbeddedController;
 
 import java.text.DateFormat;
 import java.util.Date;
@@ -46,7 +49,8 @@ public class DeviceSettings extends PreferenceActivity {
     protected void onCreate(Bundle savedInstanceState) {
         // This activity is always called from another activity, so we
         // assume that HOME_UP button should be always displayed
-        getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_HOME);
+        getActionBar().setDisplayOptions(
+                ActionBar.DISPLAY_SHOW_HOME | ActionBar.DISPLAY_SHOW_TITLE);
         getActionBar().setDisplayHomeAsUpEnabled(true);
 
         super.onCreate(savedInstanceState);
@@ -107,6 +111,102 @@ public class DeviceSettings extends PreferenceActivity {
                 return Integer.parseInt(CpuUtils.CPU_SETTING_PERFORMANCE);
             }
             return Integer.parseInt(CpuUtils.CPU_SETTING_BALANCED);
+        }
+    }
+
+    public static class DisplaySettingsFragment
+        extends PreferenceFragment implements OnPreferenceChangeListener {
+
+        private CheckBoxPreference mSmartdimmer;
+
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+
+            addPreferencesFromResource(R.xml.preferences_display);
+
+            mSmartdimmer = (CheckBoxPreference)findPreference(
+                                DisplayUtils.PREFERENCE_DISPLAY_SMARTDIMMER);
+            mSmartdimmer.setOnPreferenceChangeListener(this);
+        }
+
+        @Override
+        public boolean onPreferenceChange(Preference preference, Object newValue) {
+            String key = preference.getKey();
+            if (key.compareTo(DisplayUtils.PREFERENCE_DISPLAY_SMARTDIMMER) == 0) {
+                final boolean newSmartdimmerValue = ((Boolean)newValue).booleanValue();
+                if (!DisplayUtils.writeSmartdimmerStatus(newSmartdimmerValue)) {
+                    // Failed to set property
+                    Toast.makeText(
+                            (Context)getActivity(),
+                            R.string.display_msg_failed,
+                            Toast.LENGTH_SHORT).show();
+                    return false;
+                }
+            }
+            return true;
+        }
+    }
+
+    public static class DockSettingsFragment
+        extends PreferenceFragment implements OnPreferenceChangeListener {
+
+        private CheckBoxPreference mECWakeUp;
+        private CheckBoxPreference mKpNotifications;
+
+        DockEmbeddedController mDockEc;
+
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+
+            // Create a new instance of the Embedded Controller
+            mDockEc = new DockEmbeddedController();
+
+            addPreferencesFromResource(R.xml.preferences_dock);
+
+            mECWakeUp = (CheckBoxPreference)findPreference(
+                                                DockUtils.PREFERENCE_DOCK_EC_WAKEUP);
+            updateECWakeUpSummary(mECWakeUp.isChecked());
+            mECWakeUp.setOnPreferenceChangeListener(this);
+
+            mKpNotifications = (CheckBoxPreference)findPreference(
+                                DockUtils.PREFERENCE_DOCK_KP_NOTIFICATIONS);
+            updateKpNotificationsSummary(mKpNotifications.isChecked());
+            mKpNotifications.setOnPreferenceChangeListener(this);
+        }
+
+        @Override
+        public boolean onPreferenceChange(Preference preference, Object newValue) {
+            String key = preference.getKey();
+            if (key.compareTo(DockUtils.PREFERENCE_DOCK_EC_WAKEUP) == 0) {
+                final boolean newEcWakeMode = ((Boolean)newValue).booleanValue();
+                if (!mDockEc.setECWakeUp(newEcWakeMode)) {
+                    // Failed to set property
+                    Toast.makeText(
+                            (Context)getActivity(),
+                            R.string.dock_msg_failed,
+                            Toast.LENGTH_SHORT).show();
+                    return false;
+                }
+                updateECWakeUpSummary(newEcWakeMode);
+            } else if (key.compareTo(DockUtils.PREFERENCE_DOCK_KP_NOTIFICATIONS) == 0) {
+                final boolean newNotifications = ((Boolean)newValue).booleanValue();
+                updateKpNotificationsSummary(newNotifications);
+            }
+            return true;
+        }
+
+        private void updateECWakeUpSummary(boolean on) {
+            mECWakeUp.setSummary(on
+                                 ? R.string.dock_ec_wakeup_summary_on
+                                 : R.string.dock_ec_wakeup_summary_off);
+        }
+
+        private void updateKpNotificationsSummary(boolean on) {
+            mKpNotifications.setSummary(on
+                                 ? R.string.dock_kp_notifications_summary_on
+                                 : R.string.dock_kp_notifications_summary_off);
         }
     }
 
