@@ -20,8 +20,10 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
 <add-resource type="string" name="reboot_apx"></add-resource>
+<add-resource type="string" name="storage_sd_dock_card"></add-resource>
 
 <!-- Button to reboot the phone into APX mode, within the Reboot Options dialog -->
 <string name="reboot_apx">NVIDIA APX mode</string>
+<string name="storage_sd_dock_card">Dock SD Card</string>
 
 </resources>
