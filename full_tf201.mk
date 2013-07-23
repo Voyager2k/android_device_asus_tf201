@@ -27,6 +27,10 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 # Inherit from toro device
 $(call inherit-product, device/asus/tf201/device_tf201.mk)
 
+# Use xhdpi drawables where appropriate, but prefer mdpi.
+PRODUCT_AAPT_CONFIG := normal mdpi hdpi xhdpi
+PRODUCT_AAPT_PREF_CONFIG := mdpi
+
 # This is where we'd set a backup provider if we had one
 #$(call inherit-product, device/sample/products/backup_overlay.mk)
 
