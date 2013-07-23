@@ -15,7 +15,7 @@
  -->
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
-    <string name="app_name">Asus Transformer Infinity Einstellungen</string>
+    <string name="app_name">Asus Transformer Prime Einstellungen</string>
     <string name="cpu_settings_title">CPU</string>
     <string name="cpu_mode_title">CPU-Modus</string>
     <string name="cpu_settings_summary">Ändert den CPU-Modus</string>
