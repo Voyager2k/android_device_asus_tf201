@@ -253,4 +253,13 @@
 
     <integer name="config_multiuserMaximumUsers">8</integer>
 
+    <!-- Path to the library that contains a device specific key handler -->
+    <string name="config_deviceKeyHandlerLib" translatable="false">/system/framework/com.cyanogenmod.asusdec.jar</string>
+
+    <!-- Name of that key handler class -->
+    <string name="config_deviceKeyHandlerClass" translatable="false">com.cyanogenmod.asusdec.KeyHandler</string>
+
+    <!-- Asus dock compatibility disabled by default -->
+    <bool name="config_hasDockBattery">true</bool>
+
 </resources>
