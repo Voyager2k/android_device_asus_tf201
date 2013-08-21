@@ -40,7 +40,6 @@ PRODUCT_COPY_FILES += \
 # Prebuilt configeration files
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/cpu.sh:system/bin/cpu.sh \
-    $(LOCAL_PATH)/prebuilt/vold.fstab:system/etc/vold.fstab \
     $(LOCAL_PATH)/prebuilt/gpsconfig.xml:system/etc/gps/gpsconfig.xml \
     $(LOCAL_PATH)/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
 
@@ -97,22 +96,25 @@ PRODUCT_PACKAGES += \
     audio.usb.default \
     libaudioutils \
     libinvensense_mpl \
+    AutoParts_tfp \
     blobpack_tfp \
     mischelp \
     tinymix \
     tinyplay \
-    tinyrec
+    tinyrec \
+    com.cyanogenmod.asusdec \
+    libasusdec_jni \
+    libnetcmdiface
+    
 
 # Build Some Extra Apps
 PRODUCT_PACKAGES += \
-    Torch \
-    com.cyanogenmod.asusdec \
-    libasusdec_jni \
-    AutoParts_tfp
+    Torch
+
 # Propertys spacific for this device
 PRODUCT_PROPERTY_OVERRIDES := \
     wifi.interface=wlan0 \
-    wifi.supplicant_scan_interval=15 \
+    wifi.supplicant_scan_interval=180 \
     ro.opengles.version=131072 \
     persist.sys.usb.config=mtp,adb \
     ro.sf.lcd_density=160
