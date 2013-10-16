@@ -37,9 +37,10 @@ TARGET_CPU_ABI2 := armeabi
 TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_CPU_VARIANT := cortex-a9
 TARGET_CPU_SMP := true
-ARCH_ARM_HAVE_TLS_REGISTER := true
-ARCH_ARM_USE_NON_NEON_MEMCPY := true
 ARCH_ARM_HAVE_32_BYTE_CACHE_LINES := true
+TARGET_USE_O3 := true
+TARGET_USE_LINARO_STRING_ROUTINES := true
+TARGET_GCC_VERSION := 4.7
 
 # Avoid the generation of ldrcc instructions
 NEED_WORKAROUND_CORTEX_A9_745320 := true
@@ -106,11 +107,11 @@ TARGET_RECOVERY_FSTAB := device/asus/tf201/ramdisk/fstab.cardhu
 RECOVERY_FSTAB_VERSION := 2
 
 #SELinux Defines
-BOARD_SEPOLICY_DIRS += \
-	device/asus/tf201/selinux
+#BOARD_SEPOLICY_DIRS += \
+#	device/asus/tf201/selinux
 
-BOARD_SEPOLICY_UNION += \
-	file_contexts \
-	device.te \
-	file.te \
-	domain.te
+#BOARD_SEPOLICY_UNION += \
+#	file_contexts \
+#	device.te \
+#	file.te \
+#	domain.te
