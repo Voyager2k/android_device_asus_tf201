@@ -96,20 +96,20 @@ PRODUCT_PACKAGES += \
     audio.usb.default \
     libaudioutils \
     libinvensense_mpl \
-    AutoParts_tfp \
     blobpack_tfp \
     mischelp \
     tinymix \
     tinyplay \
     tinyrec \
-    com.cyanogenmod.asusdec \
-    libasusdec_jni \
+    Torch \
     libnetcmdiface
     
 
 # Build Some Extra Apps
 PRODUCT_PACKAGES += \
-    Torch
+    com.cyanogenmod.asusdec \
+    libasusdec_jni \
+    AutoParts_tfp
 
 # Propertys spacific for this device
 PRODUCT_PROPERTY_OVERRIDES := \
