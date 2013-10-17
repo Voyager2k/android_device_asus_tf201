@@ -107,9 +107,9 @@ PRODUCT_PACKAGES += \
 
 # Build Some Extra Apps
 PRODUCT_PACKAGES += \
-    com.cyanogenmod.asusdec \
-    libasusdec_jni \
-    AutoParts_tfp
+    #com.cyanogenmod.asusdec \
+    #libasusdec_jni \
+    #AutoParts_tfp
 
 # Propertys spacific for this device
 PRODUCT_PROPERTY_OVERRIDES := \

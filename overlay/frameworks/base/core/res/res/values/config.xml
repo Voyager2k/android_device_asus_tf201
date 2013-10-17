@@ -253,7 +253,4 @@
 
     <integer name="config_multiuserMaximumUsers">8</integer>
 
-    <!-- Asus dock compatibility disabled by default -->
-    <bool name="config_hasDockBattery">true</bool>
-
 </resources>
