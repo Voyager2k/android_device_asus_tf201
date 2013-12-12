@@ -38,9 +38,12 @@ TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_CPU_VARIANT := cortex-a9
 TARGET_CPU_SMP := true
 ARCH_ARM_HAVE_32_BYTE_CACHE_LINES := true
+
+# PA Optimizations
 TARGET_USE_O3 := true
 TARGET_USE_LINARO_STRING_ROUTINES := true
 TARGET_GCC_VERSION := 4.7
+TARGET_USE_GRAPHITE := true
 
 # Avoid the generation of ldrcc instructions
 NEED_WORKAROUND_CORTEX_A9_745320 := true
