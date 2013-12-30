@@ -24,7 +24,6 @@
         <item>@string/reboot_reboot</item>
         <item>@string/reboot_recovery</item>
 		<item>@string/reboot_fastboot</item>
-        <item>@string/reboot_apx</item>
     </array>
 
     <!-- Do not translate. Defines the shutdown actions passed to the kernel.
@@ -33,7 +32,6 @@
         <item></item>
         <item>recovery</item>
 		<item>bootloader</item>
-        <item>apx</item>
     </string-array>
 
 </resources>
