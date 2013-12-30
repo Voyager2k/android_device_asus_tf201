@@ -58,6 +58,7 @@ USE_OPENGL_RENDERER := true
 BOARD_HAVE_PIXEL_FORMAT_INFO := true
 BOARD_EGL_WORKAROUND_BUG_10194508 := true
 TARGET_DOESNT_USE_FENCE_SYNC := true
+TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
 
 # Misc display settings
 BOARD_USE_SKIA_LCDTEXT := true
@@ -96,8 +97,11 @@ TARGET_KERNEL_CONFIG := tegra3_android_defconfig
 # Prebuilt Kernel Fallback
 TARGET_PREBUILT_KERNEL := device/asus/tf201/kernel
 
+# Custom Tools
+TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := device/asus/tf201/releasetools/tf201_ota_from_target_files
+
 # Recovery Options
-BOARD_CUSTOM_BOOTIMG_MK := device/asus/tf201/releasetools/blob.mk
+BOARD_CUSTOM_BOOTIMG_MK := device/asus/tf201/recovery/recovery.mk
 TARGET_RELEASETOOLS_EXTENSIONS := device/asus/tf201/releasetools
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_HAS_LARGE_FILESYSTEM := true
