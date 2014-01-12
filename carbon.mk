@@ -1,6 +1,10 @@
 # Inherit device configuration for tf201.
 $(call inherit-product, device/asus/tf201/full_tf201.mk)
 
+# Boot animation
+TARGET_SCREEN_HEIGHT := 800
+TARGET_SCREEN_WIDTH := 1280
+
 # Inherit some common cyanogenmod stuff.
 $(call inherit-product, vendor/carbon/config/common_full_tablet_wifionly.mk)
 
