@@ -120,6 +120,7 @@ PRODUCT_PROPERTY_OVERRIDES := \
     ro.opengles.version=131072 \
     persist.sys.usb.config=mtp,adb \
     ro.sf.lcd_density=160 \
+    ro.sys.force_full_hwa=true \
     ro.zygote.disable_gl_preload=true \
     ro.bq.gpu_to_cpu_unsupported=1
 

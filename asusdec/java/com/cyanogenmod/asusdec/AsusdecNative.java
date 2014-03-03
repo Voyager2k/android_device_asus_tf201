@@ -31,7 +31,7 @@ public final class AsusdecNative {
             System.loadLibrary("asusdec_jni");
             sLoaded = true;
             if (DEBUG) {
-                Log.i(TAG, "Asusdec native library loaded");
+            	Log.i(TAG, "Asusdec native library loaded");
             }
         }
     }
