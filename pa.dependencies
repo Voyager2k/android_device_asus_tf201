@@ -1,0 +1,15 @@
+[
+    {
+        "remote":       "github",
+        "repository":   "Voyager2k/android_kernel_asus_tf201",
+        "target_path":  "kernel/asus/tf201",
+        "revision":     "kitkat"
+    },
+    {
+        "remote":       "github",
+        "repository":   "Voyager2k/proprietary_vendor_asus",
+        "target_path":  "vendor/asus",
+        "revision":     "cm-11.0"
+    }
+]
+
