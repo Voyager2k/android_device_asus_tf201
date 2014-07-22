@@ -79,7 +79,6 @@ on boot
     chown bluetooth net_bt_stack ro.bt.bdaddr_path
     chown bluetooth net_bt_stack /system/etc/bluetooth
     chown bluetooth net_bt_stack /data/misc/bluetooth
-    setprop ro.bt.bdaddr_path "/data/misc/bluetooth/mac.txt"
         
     # bluetooth LPM
     chmod 0220 /proc/bluetooth/sleep/lpm
@@ -243,16 +242,6 @@ on property:ro.debuggable=1
 # stop ril-daemon if this is a wifi-only device
 on property:ro.carrier=wifi-only
     stop ril-daemon
-
-# Write Wi-Fi Mac
-service wifimacwriter /system/bin/wifimacwriter
-    class main
-    oneshot
-
-# Write ASUS BD_ADDR to /data/misc/bluetooth
-service bdaddrwriter /system/bin/bdaddrwriter
-    class main
-    oneshot
 
 service wpa_supplicant /system/bin/wpa_supplicant \
     -Dnl80211 -iwlan0 -c/data/misc/wifi/wpa_supplicant.conf \
