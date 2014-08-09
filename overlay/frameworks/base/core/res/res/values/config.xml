@@ -293,4 +293,7 @@
 
     <!-- Indicate whether the SD card is accessible without removing the battery. -->
     <bool name="config_batterySdCardAccessibility">true</bool>
+
+    <!-- Camera flash -->
+    <bool name="config_device_has_camera_flash">true</bool>
 </resources>
